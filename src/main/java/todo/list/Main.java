@@ -56,7 +56,7 @@ public class Main {
             System.out.println("Список задач:");
             List<Task> tasks = manager.getTasks();
             for (int i = 0; i < tasks.size(); i++) {
-                System.out.println(String.format((i + 1) + "." + "[%s]" +
+                System.out.println(String.format(tasks.get(i).getTaskId() + "." + "[%s]" +
                         tasks.get(i).getDescription(), manager.checkCompleted(tasks.get(i).getTaskId())));
             }
         }
