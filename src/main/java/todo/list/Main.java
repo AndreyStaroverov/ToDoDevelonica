@@ -43,7 +43,8 @@ public class Main {
 
     public static void addTask() {
         System.out.println("Добавьте описание задачи");
-        String message = scanner.next();
+        scanner.nextLine();
+        String message = scanner.nextLine();
         manager.createTask(message);
         System.out.println(String.format("Задача %s", message));
         printMenu();
@@ -70,6 +71,9 @@ public class Main {
             try {
                 System.out.println("Введите номер задачи для отметки как выполненной");
                 taskId = scanner.nextInt();
+                if(!manager.checkCompleted(taskId).isBlank()){
+                    throw new IllegalArgumentException();
+                }
                 manager.markTaskAsCompleted(taskId);
                 System.out.println(String.format("Задача %s выполнена", manager.getTaskById(taskId).getDescription()));
                 isValid = true;
@@ -77,6 +81,10 @@ public class Main {
                 System.out.println("Пожалуйста, введите целое число.");
             } catch (NullPointerException e) {
                 System.out.println("Задачи с таким номером не существует");
+            } catch (IllegalArgumentException e) {
+                System.out.println("Задача уже отмечена выполненной");
+                printMenu();
+                return;
             }
         } while (!isValid);
         printMenu();
