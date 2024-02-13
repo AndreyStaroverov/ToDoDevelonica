@@ -32,8 +32,8 @@ public class Main {
                     } else {
                         System.out.println("Список задач:");
                         for (int i = 0; i < manager.getTasks().size(); i++) {
-                            System.out.println(String.format((i+1) + "." + "[%s]" +
-                                    manager.getTasks().get(i).getDescription(), manager.checkCompleted(i+1)));
+                            System.out.println(String.format((i + 1) + "." + "[%s]" +
+                                    manager.getTasks().get(i).getDescription(), manager.checkCompleted(i + 1)));
                         }
                     }
                     printMenu();
@@ -41,7 +41,7 @@ public class Main {
                 case 3:
                     System.out.println("Введите номер задачи для отметки как выполненной");
                     int taskId = scanner.nextInt();
-                    manager.isCompleted(taskId);
+                    manager.markTaskAsCompleted(taskId);
                     System.out.println(String.format("Задача %s выполнена%n",
                             manager.getTaskById(taskId).getDescription()));
                     printMenu();

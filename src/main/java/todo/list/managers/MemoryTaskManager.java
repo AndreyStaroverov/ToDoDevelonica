@@ -43,13 +43,13 @@ public class MemoryTaskManager implements TaskManager {
     }
 
     @Override
-    public void isCompleted(int id) {
+    public void markTaskAsCompleted(int id) {
         taskMap.get(id).setCompleted(true);
     }
 
     @Override
     public String checkCompleted(int id) {
-        if(taskMap.get(id).getCompleted()) {
+        if (taskMap.get(id).getCompleted()) {
             return "X";
         } else {
             return "";

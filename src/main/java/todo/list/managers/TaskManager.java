@@ -1,7 +1,6 @@
 package todo.list.managers;
 
 import todo.list.models.Task;
-
 import java.util.List;
 
 public interface TaskManager {
@@ -16,6 +15,7 @@ public interface TaskManager {
 
     Task getTaskById(int id);
 
-    void isCompleted(int id);
+    void markTaskAsCompleted(int id);
+
     public String checkCompleted(int id);
 }
