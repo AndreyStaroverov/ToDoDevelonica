@@ -1,6 +1,7 @@
 package todo.list.managers;
 
 import todo.list.models.Task;
+
 import java.util.List;
 
 public interface TaskManager {
